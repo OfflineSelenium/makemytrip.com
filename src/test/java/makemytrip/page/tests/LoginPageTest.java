@@ -1,9 +1,11 @@
 package makemytrip.page.tests;
 
 import makemytrip.page.objects.LoginPage;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import web.libraries.Common;
 
 public class LoginPageTest extends BaseTest {
 
@@ -26,8 +28,13 @@ public class LoginPageTest extends BaseTest {
      * ******************************************************************************************
      */
     @Test(description = "Verify logging in passed")
-    public void verifyLogInPassed() {
-        System.out.println(">>>>Nguyen");
+    public void verifyLoginPassed() {
+        loginPage.clickSigninMenu()
+                 .enterUsername("test.secude@gmail.com")
+                 .enterPassword("Admin-123")
+                 .clickContinueSuccessed();
+        Common.sleep(5000);
+        Assert.assertTrue(loginPage.shouldSeeUsername("Test"));
     }
 
 }
