@@ -37,6 +37,15 @@ public class WebElementFinder {
 		}
 	}
 
+	public WebElement findElementByLocatorCssSelector(String cssSelector) {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
 	/**
 	 * Find elements are visible on the page based on the locator and property value provided.
 	 */

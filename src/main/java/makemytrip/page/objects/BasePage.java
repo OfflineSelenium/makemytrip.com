@@ -29,6 +29,10 @@ public abstract class BasePage {
 		return webElementFinder.findElementByLocatorID(property);
 	}
 
+	public WebElement findElementByLocatorCssSelector(String property) {
+		return webElementFinder.findElementByLocatorCssSelector(property);
+	}
+
 	public String title() {
 		return driver.getTitle();
 	}

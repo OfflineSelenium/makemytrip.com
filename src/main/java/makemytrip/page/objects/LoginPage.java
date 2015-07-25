@@ -3,18 +3,22 @@ package makemytrip.page.objects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
+import sun.rmi.runtime.Log;
 
 @Component
 public class LoginPage extends BasePage {
 
-    @FindBy(id = "ctl00_ctl00_MainContent_ContentMain_RewardLogin1_txtEmail")
+    @FindBy(id = "login_dropOpenItem")
+    private WebElement btnDropOpenItem;
+
+    @FindBy(id = "username")
     private WebElement txtEmail;
 
-    @FindBy(id = "ctl00_ctl00_MainContent_ContentMain_RewardLogin1_txtPassword")
+    @FindBy(id = "password_text")
     private WebElement txtPassword;
 
-    @FindBy(id = "ctl00_ctl00_MainContent_ContentMain_RewardLogin1_btnSignIn")
-    private WebElement btnSignIn;
+    @FindBy(id = "login_btn")
+    private WebElement btnContinue;
 
     private WebElement getEmailValidation() {
         return webElementFinder.findElementByLocatorID("ctl00_ctl00_MainContent_ContentMain_RewardLogin1_rfvEmail");
@@ -42,8 +46,14 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public LoginPage clickSignInFailed() {
-        btnSignIn.click();
+    public LoginPage clickContinueFailure() {
+        btnContinue.click();
+        return this;
+    }
+
+    public LoginPage clickLoginDropOpenItem()
+    {
+        btnDropOpenItem.click();
         return this;
     }
 
@@ -67,4 +77,11 @@ public class LoginPage extends BasePage {
         return getPasswordValidation().getCssValue("color");
     }
 
+    public boolean shouldSeeTextEmailError(String text){
+        return findElementByLocatorCssSelector("#login_form_0 #f_oldemail_emailerror .chf_errortext").getText().equals(text);
+    }
+
+    public boolean shouldSeeTextPasswordError(String text){
+        return findElementByLocatorCssSelector("#unregistered_email_span #errormsg_password").getText().equals(text);
+    }
 }

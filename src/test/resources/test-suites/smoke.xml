@@ -21,6 +21,8 @@
             <class name="makemytrip.page.tests.LoginPageTest">
                 <methods>
                     <include name="verifyLogInPassed"/>
+                    <include name="verifyLogInFailedWithInvalidEmail"/>
+                    <include name="verifyLogInFailedWithInvalidPassword"/>
                 </methods>
             </class>
         </classes>
