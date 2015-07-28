@@ -20,7 +20,7 @@
         <classes>
             <class name="makemytrip.page.tests.LoginPageTest">
                 <methods>
-                    <include name="verifyLogInPassed"/>
+                    <include name="verifyLoginPassed"/>
                 </methods>
             </class>
         </classes>

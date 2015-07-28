@@ -7,33 +7,33 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoginPage extends BasePage {
 
-    @FindBy(id = "ctl00_ctl00_MainContent_ContentMain_RewardLogin1_txtEmail")
-    private WebElement txtEmail;
+    @FindBy(id = "ssologinlink")
+    private WebElement ddlLogin;
 
-    @FindBy(id = "ctl00_ctl00_MainContent_ContentMain_RewardLogin1_txtPassword")
+    @FindBy(id = "username")
+    private WebElement txtUsername;
+
+    @FindBy(id = "password_text")
     private WebElement txtPassword;
 
-    @FindBy(id = "ctl00_ctl00_MainContent_ContentMain_RewardLogin1_btnSignIn")
-    private WebElement btnSignIn;
-
-    private WebElement getEmailValidation() {
-        return webElementFinder.findElementByLocatorID("ctl00_ctl00_MainContent_ContentMain_RewardLogin1_rfvEmail");
-    }
-
-    private WebElement getPasswordValidation() {
-        return webElementFinder.findElementByLocatorID("ctl00_ctl00_MainContent_ContentMain_RewardLogin1_rfvPassword");
-    }
+    @FindBy(id = "login_btn")
+    private WebElement btnContinue;
 
     public void load() {
         loadPage("/");
     }
 
     public void isLoaded() {
-        webPageFactory.checkWeAreOnTheRightPage("Sign In");
+//        webPageFactory.checkWeAreOnTheRightPage("Sign In");
     }
 
-    public LoginPage enterEmail(String email) {
-        txtEmail.sendKeys(email);
+    public LoginPage clickLoginDropDown() {
+        ddlLogin.click();
+        return this;
+    }
+
+    public LoginPage enterUsername(String username) {
+        txtUsername.sendKeys(username);
         return this;
     }
 
@@ -42,29 +42,20 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public LoginPage clickSignInFailed() {
-        btnSignIn.click();
+    public LoginPage clickContinueSuccessed() {
+        btnContinue.click();
         return this;
     }
 
-    public String signInNotificationText() {
-        return findElementByLocator("notification_sign_in").getText();
+    public boolean shouldSeeUsername(String username) {
+        WebElement element = webElementFinder.findElementByLocatorXPath("//span[@id='ssologinlink']/strong[text()!='My Account']");
+        return element.getText().equals(username);
     }
 
-    public String emailValidationText() {
-        return getEmailValidation().getText();
-    }
-
-    public String passwordValidationText() {
-        return getPasswordValidation().getText();
-    }
-
-    public String emailValidationTextColor() {
-        return getEmailValidation().getCssValue("color");
-    }
-
-    public String passwordValidationTextColor() {
-        return getPasswordValidation().getCssValue("color");
+    public LoginPage clickLogoutLink() {
+        WebElement lnkLogout = webElementFinder.findElementByLocatorXPath("//div[@id='afterlogin_div']//ul[@class='chf_account_links']//input");
+        lnkLogout.click();
+        return this;
     }
 
 }
