@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -16,12 +17,15 @@ public class WebElementFinder {
 	@Autowired
 	private WebDriver driver;
 
+	@Value("${timeout}")
+	private int timeout;
+
 	/**
 	 * Find element is visible on the page based on the locator and property value provided.
 	 */
 	public WebElement findElementByLocatorID(String id) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 10);
+			WebDriverWait wait = new WebDriverWait(driver, timeout);
 			return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
 		} catch (Exception e) {
 			return null;
@@ -30,8 +34,17 @@ public class WebElementFinder {
 
 	public WebElement findElementByLocatorXPath(String xpath) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 10);
+			WebDriverWait wait = new WebDriverWait(driver, timeout);
 			return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	public WebElement findElementByLocatorCssSelector(String selector) {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, timeout);
+			return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(selector)));
 		} catch (Exception e) {
 			return null;
 		}
