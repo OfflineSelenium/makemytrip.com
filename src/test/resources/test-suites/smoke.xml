@@ -23,6 +23,11 @@
                     <include name="verifyLogInPassed"/>
                 </methods>
             </class>
+            <!--<class name="makemytrip.page.tests.SearchPageTest">-->
+                <!--<methods>-->
+                    <!--<include name="verifySearchResultsFound"/>-->
+                <!--</methods>-->
+            <!--</class>-->
         </classes>
     </test>
     <listeners>
