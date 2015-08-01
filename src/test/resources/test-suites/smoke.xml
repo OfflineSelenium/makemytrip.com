@@ -18,16 +18,16 @@
         <!--</classes>-->
         <!--  setup to run one method -->
         <classes>
-            <class name="makemytrip.page.tests.LoginPageTest">
-                <methods>
-                    <include name="verifyLogInPassed"/>
-                </methods>
-            </class>
-            <!--<class name="makemytrip.page.tests.SearchPageTest">-->
+            <!--<class name="makemytrip.page.tests.LoginPageTest">-->
                 <!--<methods>-->
-                    <!--<include name="verifySearchResultsFound"/>-->
+                    <!--<include name="verifyLogInPassed"/>-->
                 <!--</methods>-->
             <!--</class>-->
+            <class name="makemytrip.page.tests.SearchPageTest">
+                <methods>
+                    <include name="verifySearchResultsFound"/>
+                </methods>
+            </class>
         </classes>
     </test>
     <listeners>

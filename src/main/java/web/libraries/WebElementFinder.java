@@ -13,41 +13,41 @@ import java.util.List;
 @Component
 public class WebElementFinder {
 
-	@Autowired
-	private WebDriver driver;
+    @Autowired
+    private WebDriver driver;
 
-	/**
-	 * Find element is visible on the page based on the locator and property value provided.
-	 */
-	public WebElement findElementByLocatorID(String id) {
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, 10);
-			return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
-		} catch (Exception e) {
-			return null;
-		}
-	}
+    /**
+     * Find element is visible on the page based on the locator and property value provided.
+     */
+    public WebElement findElementByLocatorID(String id) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
-	public WebElement findElementByLocatorXPath(String xpath) {
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, 10);
-			return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-		} catch (Exception e) {
-			return null;
-		}
-	}
+    public WebElement findElementByLocatorXPath(String xpath) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
-	/**
-	 * Find elements are visible on the page based on the locator and property value provided.
-	 */
-	public List<WebElement> findElementsByLocatorXPath(String xpath) {
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, 10);
-			return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(xpath)));
-		} catch (Exception e) {
-			return null;
-		}
-	}
+    /**
+     * Find elements are visible on the page based on the locator and property value provided.
+     */
+    public List<WebElement> findElementsByLocatorXPath(String xpath) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(xpath)));
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
 //	private By getByElement(String locator, String value) {
 //		By byElement = null;
