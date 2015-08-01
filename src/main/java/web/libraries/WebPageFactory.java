@@ -1,5 +1,7 @@
 package web.libraries;
 
+import makemytrip.page.objects.SearchPage;
+import makemytrip.page.objects.SearchResultsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,8 +15,15 @@ public class WebPageFactory {
 
     @Autowired
     private WebDriver driver;
+
     @Autowired
     private LoginPage loginPage;
+
+    @Autowired
+    private SearchPage searchPage;
+
+    @Autowired
+    private SearchResultsPage searchResultsPage;
 
     public void checkWeAreOnTheRightPage(String titlePage) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -33,6 +42,17 @@ public class WebPageFactory {
     public LoginPage getLoginPage() {
         PageFactory.initElements(driver, loginPage);
         return loginPage;
+    }
+
+    public SearchPage loadSearchPage(){
+        PageFactory.initElements(driver, searchPage);
+        searchPage.load();
+        return searchPage;
+    }
+
+    public SearchResultsPage loadSearchResultsPage(){
+        PageFactory.initElements(driver, searchResultsPage);
+        return searchResultsPage;
     }
 
     public WebDriver getDriver() {
