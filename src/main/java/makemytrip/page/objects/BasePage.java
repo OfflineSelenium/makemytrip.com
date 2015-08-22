@@ -25,6 +25,10 @@ public abstract class BasePage {
 		driver.get(siteBase + path);
 	}
 
+	public WebElement findElementByLocator(String property) {
+		return webElementFinder.findElementByLocatorID(property);
+	}
+
 	public String title() {
 		return driver.getTitle();
 	}

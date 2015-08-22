@@ -34,8 +34,8 @@ public class WebPageFactory {
     public LoginPage loadLoginPage() {
         PageFactory.initElements(driver, loginPage);
         loginPage.load();
-        if (loginPage.isPopupMegaHolidaySaleDisplayed())
-            loginPage.closePopupMegaHolidaySale();
+//        if (loginPage.isPopupMegaHolidaySaleDisplayed())
+//            loginPage.closePopupMegaHolidaySale();
         return loginPage;
     }
 

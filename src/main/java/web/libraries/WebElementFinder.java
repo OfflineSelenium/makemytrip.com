@@ -50,6 +50,24 @@ public class WebElementFinder {
 		}
 	}
 
+	public WebElement findElementByClassName(String classname){
+		try{
+			WebDriverWait wait = new WebDriverWait(driver,10);
+			return wait.until(ExpectedConditions.visibilityOfElementLocated(By.className(classname)));
+		}catch (Exception e){
+			return null;
+		}
+	}
+
+	public WebElement findElementByTagName(String tagname) {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			return wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName(tagname)));
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
 	/**
 	 * Find elements are visible on the page based on the locator and property value provided.
 	 */

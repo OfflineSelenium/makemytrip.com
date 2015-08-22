@@ -8,7 +8,7 @@
        default-lazy-init="true">
 
     <!--<bean id="driver" class="org.openqa.selenium.chrome.ChromeDriver" destroy-method="quit"/>-->
-    <bean id="driver" class="web.libraries.Browser" factory-method="getInstance">
+    <bean id="driver" class="web.libraries.Browser" factory-method="getInstance" destroy-method="quit">
         <constructor-arg value="${browser.type}"/>
     </bean>
 

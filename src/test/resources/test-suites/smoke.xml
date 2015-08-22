@@ -10,14 +10,19 @@
         <!--<include name="regression"/>-->
         <!--</run>-->
         <!--</groups>-->
+        <!--<classes>-->
+        <!--<class name="com.agoda.tests.HomePageTest"/>-->
+        <!--<class name="com.agoda.tests.LogInPageTest"/>-->
+        <!--<class name="com.agoda.tests.MyBookingsTest"/>-->
+        <!--<class name="com.agoda.tests.ExcelTest"/>-->
+        <!--</classes>-->
+        <!--  setup to run one method -->
         <classes>
-            <class name="makemytrip.page.tests.LoginPageTest">
-                <methods>
-                    <include name="verifyLoginPassed"/>
-                    <include name="verifyLogInFailedWithInvalidEmail"/>
-                    <include name="verifyLogInFailedWithInvalidPassword"/>
-                </methods>
-            </class>
+            <!--<class name="makemytrip.page.tests.LoginPageTest">-->
+                <!--<methods>-->
+                    <!--<include name="verifyLogInPassed"/>-->
+                <!--</methods>-->
+            <!--</class>-->
             <class name="makemytrip.page.tests.SearchPageTest">
                 <methods>
                     <include name="verifySearchResultsFound"/>

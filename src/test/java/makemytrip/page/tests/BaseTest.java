@@ -18,10 +18,10 @@ public abstract class BaseTest extends AbstractTestNGSpringContextTests {
 
     }
 
-    @AfterClass
-    public void endClass() {
-        webPageFactory.getDriver().quit();
-    }
+//    @AfterClass
+//    public void endClass() {
+//        webPageFactory.getDriver().quit();
+//    }
 
     public void refreshPage() {
         webPageFactory.getDriver().navigate().refresh();
