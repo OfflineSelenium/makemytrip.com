@@ -15,10 +15,13 @@ public class WebPageFactory {
 
     @Autowired
     private WebDriver driver;
+
     @Autowired
-    private LoginPage logInPage;
+    private LoginPage loginPage;
+
     @Autowired
     private SearchPage searchPage;
+
     @Autowired
     private SearchResultsPage searchResultsPage;
 
@@ -28,15 +31,17 @@ public class WebPageFactory {
             throw new IllegalStateException(String.format("This is not the %s page.", titlePage));
     }
 
-    public LoginPage loadLogInPage() {
-        PageFactory.initElements(driver, logInPage);
-        logInPage.load();
-        return logInPage;
+    public LoginPage loadLoginPage() {
+        PageFactory.initElements(driver, loginPage);
+        loginPage.load();
+//        if (loginPage.isPopupMegaHolidaySaleDisplayed())
+//            loginPage.closePopupMegaHolidaySale();
+        return loginPage;
     }
 
-    public LoginPage getLogInPage() {
-        PageFactory.initElements(driver, logInPage);
-        return logInPage;
+    public LoginPage getLoginPage() {
+        PageFactory.initElements(driver, loginPage);
+        return loginPage;
     }
 
     public SearchPage loadSearchPage(){

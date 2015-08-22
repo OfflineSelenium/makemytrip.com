@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MakeMyTrip, India's No 1 Travel Site Smoke Test Suite">
+
+    <parameter name="testdata.filename" value="testdata.properties"/>
+
+    <test name="MakeMyTrip, India's No 1 Travel Site Smoke Test in firefox">
+        <classes>
+            <!--<class name="makemytrip.page.tests.LoginPageTest">-->
+                <!--<methods>-->
+                    <!--<include name="verifyLoginPassed"/>-->
+                    <!--<include name="verifyLogInFailedWithInvalidEmail"/>-->
+                    <!--<include name="verifyLogInFailedWithInvalidPassword"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+
+            <class name="makemytrip.page.tests.SearchPageTest">
+                <methods>
+                    <include name="verifySearchResultsHotelsFound"/>
+                    <include name="verifySearchResultsInternationalHotelsFound"/>
+                    <include name="verifyCheckHotealLocation"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="web.libraries.TestStatusListener"/>
+    </listeners>
+</suite>

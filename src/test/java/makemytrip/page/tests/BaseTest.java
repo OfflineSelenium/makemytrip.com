@@ -3,6 +3,7 @@ package makemytrip.page.tests;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import web.libraries.WebPageFactory;
 
@@ -16,6 +17,11 @@ public abstract class BaseTest extends AbstractTestNGSpringContextTests {
     public void initTestData() {
 
     }
+
+//    @AfterClass
+//    public void endClass() {
+//        webPageFactory.getDriver().quit();
+//    }
 
     public void refreshPage() {
         webPageFactory.getDriver().navigate().refresh();
