@@ -1,5 +1,6 @@
 package web.libraries;
 
+import makemytrip.page.objects.HotelsPage;
 import makemytrip.page.objects.SearchPage;
 import makemytrip.page.objects.SearchResultsPage;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +25,9 @@ public class WebPageFactory {
 
     @Autowired
     private SearchResultsPage searchResultsPage;
+	
+	@Autowired
+    private HotelsPage hotelsPage;
 
     public void checkWeAreOnTheRightPage(String titlePage) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -34,8 +38,8 @@ public class WebPageFactory {
     public LoginPage loadLoginPage() {
         PageFactory.initElements(driver, loginPage);
         loginPage.load();
-        if (loginPage.isPopupMegaHolidaySaleDisplayed())
-            loginPage.closePopupMegaHolidaySale();
+//        if (loginPage.isPopupMegaHolidaySaleDisplayed())
+//            loginPage.closePopupMegaHolidaySale();
         return loginPage;
     }
 
@@ -53,6 +57,17 @@ public class WebPageFactory {
     public SearchResultsPage loadSearchResultsPage(){
         PageFactory.initElements(driver, searchResultsPage);
         return searchResultsPage;
+    }
+	
+	public HotelsPage loadHotelsPage() {
+        PageFactory.initElements(driver, hotelsPage);
+        hotelsPage.load();
+        return hotelsPage;
+    }
+
+    public HotelsPage getHotelsPage() {
+        PageFactory.initElements(driver, hotelsPage);
+        return hotelsPage;
     }
 
     public WebDriver getDriver() {
