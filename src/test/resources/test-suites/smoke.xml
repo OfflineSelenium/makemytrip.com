@@ -13,7 +13,7 @@
         <classes>
             <class name="makemytrip.page.tests.LoginPageTest">
                 <methods>
-                    <include name="verifyLoginPassed"/>
+                    <!--<include name="verifyLoginPassed"/>-->
                     <include name="verifyLogInFailedWithInvalidEmail"/>
                     <include name="verifyLogInFailedWithInvalidPassword"/>
                 </methods>
@@ -21,6 +21,11 @@
             <class name="makemytrip.page.tests.SearchPageTest">
                 <methods>
                     <include name="verifySearchResultsFound"/>
+                </methods>
+            </class>
+	        <class name="makemytrip.page.tests.HotelsPageTest">
+                <methods>
+                    <include name="verifyNightDay"/>
                 </methods>
             </class>
         </classes>

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import web.libraries.WebPageFactory;
 
@@ -18,7 +19,7 @@ public abstract class BaseTest extends AbstractTestNGSpringContextTests {
 
     }
 
-    @AfterClass
+    @AfterTest
     public void endClass() {
         webPageFactory.getDriver().quit();
     }
